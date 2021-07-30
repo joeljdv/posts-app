@@ -1,3 +1,4 @@
+
 import './App.css';
 import React, {useState, useEffect} from 'react';
 import {BrowserRouter as Router, Route, Switch, useHistory} from 'react-router-dom'
@@ -5,6 +6,8 @@ import Home from './components/Home'
 import Navbar from './components/Navbar';
 import Login from './containers/Login';
 import Signup from './containers/Signup';
+import Posts from './containers/Posts';
+// import Post from './containers/Post';
 
 function App() {
 
@@ -46,8 +49,8 @@ const logoutUser = () => {
         <Route exact path="/" component={Home} />
         <Route exact path="/signup" render={routerProps => <Signup {...routerProps} loginUser={loginUser} loggedIn={loggedIn}/>} />
         <Route exact path="/login" render={routerProps => <Login {...routerProps} loginUser={loginUser} loggedIn={loggedIn}/>} />
-        {/* <Route exact path="/posts" component={Posts}/>
-        <Route  path="/posts/:id" component={Post} />
+        <Route exact path="/posts" component={Posts}/>
+        {/* <Route  path="/posts/:id" component={Post} />
         <Route path="/posts/:post_id/comments" />
         <Route path="/posts/:post_id/comments/:id" /> */}
       </Switch>
