@@ -18,20 +18,8 @@ class CommentsController < ApplicationController
         render json: comment
     end
 
-    def update
-    end
-
-    def destroy
-        comment = Comment.find_by(id: params[:comment_id])
-        comment.destroy
-        head :no_content
-    end
-
     private
 
-    # def comment_params
-    #     params.permit(:content)
-    # end
     def authorize
         return render json: {error: "Not authorized"}, status: :unauthorized unless session.include? :user_id
     end

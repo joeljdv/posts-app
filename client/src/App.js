@@ -1,7 +1,7 @@
 
 import './App.css';
 import React, {useState, useEffect} from 'react';
-import {BrowserRouter as Router, Route, Switch, useHistory} from 'react-router-dom'
+import {BrowserRouter as Router, Route, Switch} from 'react-router-dom'
 import Home from './components/Home'
 import Navbar from './components/Navbar';
 import Login from './containers/Login';
@@ -45,6 +45,7 @@ const logoutUser = () => {
   return (
     <div className="App">
      <Navbar user={user} loggedIn={loggedIn} logoutUser={logoutUser}/>
+     <br/>
       <Switch>
         <Route exact path="/" component={Home} />
         <Route exact path="/signup" render={routerProps => <Signup {...routerProps} loginUser={loginUser} loggedIn={loggedIn}/>} />

@@ -37,12 +37,15 @@ const Posts = () => {
     const postsList = posts.map(p => <PostLink key={p.id} post={p} />)
 
     return (
-        <div>
-            {postsList}
-            {formFlag ?
+        <div className="posts">
+            <br/>           
+             {formFlag ?
                 <AddPostForm addPost={addPost}/> :
                 <button onClick={() => {setFormFlag(true)}}>Add Post</button>
             }
+            <br/>
+            <br/>
+            {postsList}
         </div>
     )
 }
