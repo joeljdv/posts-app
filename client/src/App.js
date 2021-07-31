@@ -52,8 +52,6 @@ const logoutUser = () => {
         <Route exact path="/login" render={routerProps => <Login {...routerProps} loginUser={loginUser} loggedIn={loggedIn}/>} />
         <Route exact path="/posts" component={Posts}/>
         <Route  path="/posts/:id" component={Post} />
-        {/* <Route path="/posts/:post_id/comments" />
-        <Route path="/posts/:post_id/comments/:id" /> */}
       </Switch>
     </div>
   );

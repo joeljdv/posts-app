@@ -1,7 +1,7 @@
 import React, {useState, useEffect} from 'react'
 import { Link } from 'react-router-dom'
 import CommentForm from './CommentForm'
-// import EditPost from './EditPost'
+import EditPost from './EditPost'
 import Comments from './Comments'
 
 const Post = (props) => {
@@ -9,7 +9,7 @@ const Post = (props) => {
     const [post, setPost] = useState({})
     const [user, setUser] = useState("")
     const [error, setError] = useState("")
-    const [editFormFlag, setEditFormFlag] = useState(false)
+    const [formFlag, setFormFlag] = useState(false)
     const [comments, setComments] = useState([])
     const [id, setId] = useState("")
     const [postUserId, setPostUserId] = useState("")
@@ -42,7 +42,7 @@ const Post = (props) => {
         .then(r => r.json())
         .then(data => {
             console.log(data)
-            setEditFormFlag(false)
+            setFormFlag(false)
             setPost(data)
         })
     }
@@ -79,14 +79,14 @@ const Post = (props) => {
 
     // delete comments
 
-    const deleteComment = (e) => {
-        fetch(`/comments/${e.target.id}`, {
-            method: "DELETE"
-        })
-        console.log(e.target.id)
-    }
+    // const deleteComment = (e) => {
+    //     fetch(`/comments/${e.target.id}`, {
+    //         method: "DELETE"
+    //     })
+    //     console.log(e.target.id)
+    // }
 
-    const commentsList = comments.map(c => <Comments delete={deleteComment} comment={c} key={c.id}/>)
+    const commentsList = comments.map(c => <Comments  comment={c} key={c.id}/>)
 
     // get Id
 
@@ -97,6 +97,7 @@ const Post = (props) => {
             console.log(data.id)
             setId(data.id)
         })
+        console.log(formFlag)
     }, [])
 
 
@@ -114,9 +115,10 @@ const Post = (props) => {
                 <Link to="/posts">
                     <button className="btn" onClick={deletePost}><i className="fa fa-trash"></i></button>
                 </Link>  
+                {formFlag ? <EditPost post={post} editPost={editPost}/> :
+                <button className="btn" onClick={() => setFormFlag(true)}><i className="fas fa-edit"></i></button>}
+                <hr/>
                 <CommentForm addComment={addComment} /> 
-                {/* {editFormFlag ? <EditPost post={post} editPost={editPost}/> :
-                    <button className="btn" onClick={handleEdit}><i className="fas fa-edit"></i></button>} */}
                 <hr/>
                 <br/>
                 {commentsList}
