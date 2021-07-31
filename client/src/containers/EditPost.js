@@ -36,6 +36,7 @@ const EditPost = (props) => {
                 <br/>
                 <input type="submit"/>
             </form>
+            <button onClick={props.cancel}>cancel</button>
         </div>
     )
 }

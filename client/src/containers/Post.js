@@ -15,7 +15,7 @@ const Post = (props) => {
     const [postUserId, setPostUserId] = useState("")
 
     useEffect(() => {
-        fetch(`/posts/${props.match.params.id}`)
+        fetch(`/posts/${props.match.params.post_id}`)
         .then(r => r.json())
         .then(data => {
             console.log(data)
@@ -26,13 +26,13 @@ const Post = (props) => {
     }, [])
 
     const deletePost = () => {
-        fetch(`/posts/${props.match.params.id}`, {
+        fetch(`/posts/${props.match.params.post_id}`, {
             method: "DELETE"
         })
     }
     
     const editPost = (p) => {
-        fetch(`/posts/${props.match.params.id}`, {
+        fetch(`/posts/${props.match.params.post_id}`, {
             method: 'PATCH',
             body: JSON.stringify(p),
             headers: {
@@ -52,7 +52,7 @@ const Post = (props) => {
     // get comments
 
     useEffect(() => {
-        fetch(`/posts/${props.match.params.id}`)
+        fetch(`/posts/${props.match.params.post_id}`)
         .then(r => r.json())
         .then(data => {
             console.log(data.comments)
@@ -63,7 +63,7 @@ const Post = (props) => {
     // add comments
 
     const addComment = (c) => {
-        fetch(`/posts/${props.match.params.id}/comments`, {
+        fetch(`/posts/${props.match.params.post_id}/comments`, {
             method: "POST",
             headers: {
                 "Content-Type":"application/json"
@@ -79,14 +79,14 @@ const Post = (props) => {
 
     // delete comments
 
-    // const deleteComment = (e) => {
-    //     fetch(`/comments/${e.target.id}`, {
-    //         method: "DELETE"
-    //     })
-    //     console.log(e.target.id)
-    // }
+    const deleteComment = (e) => {
+        fetch(`/comments/${props.match.params.id}`, {
+            method: "DELETE"
+        })
+        console.log(e.target.id)
+    }
 
-    const commentsList = comments.map(c => <Comments  comment={c} key={c.id}/>)
+    const commentsList = comments.map(c => <Comments delete={deleteComment} comment={c} key={c.id} post={post}/>)
 
     // get Id
 
@@ -100,7 +100,9 @@ const Post = (props) => {
         console.log(formFlag)
     }, [])
 
-
+    const cancelEdit = () => {
+        setFormFlag(false)
+    }
 
 
 
@@ -115,7 +117,7 @@ const Post = (props) => {
                 <Link to="/posts">
                     <button className="btn" onClick={deletePost}><i className="fa fa-trash"></i></button>
                 </Link>  
-                {formFlag ? <EditPost post={post} editPost={editPost}/> :
+                {formFlag ? <EditPost post={post} editPost={editPost} cancel={cancelEdit} /> :
                 <button className="btn" onClick={() => setFormFlag(true)}><i className="fas fa-edit"></i></button>}
                 <hr/>
                 <CommentForm addComment={addComment} /> 

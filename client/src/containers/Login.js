@@ -6,7 +6,6 @@ const Login= (props) => {
     const [password, setPassword] = useState("")
     const [error, setError] = useState("")
 
-
     const handleSubmit = (e) => {
         e.preventDefault()
         fetch('/login', {
@@ -29,9 +28,6 @@ const Login= (props) => {
                 props.loginUser(data)
             }
         })
-        // .then(user => {
-        //     console.log("okay")
-        //     props.loginUser(user)})
     }
 
   

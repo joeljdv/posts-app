@@ -9,6 +9,7 @@ import Signup from './containers/Signup';
 import Posts from './containers/Posts';
 import Post from './containers/Post';
 
+
 function App() {
 
   const [loggedIn, setLoggedIn] = useState(false)
@@ -51,7 +52,7 @@ const logoutUser = () => {
         <Route exact path="/signup" render={routerProps => <Signup {...routerProps} loginUser={loginUser} loggedIn={loggedIn}/>} />
         <Route exact path="/login" render={routerProps => <Login {...routerProps} loginUser={loginUser} loggedIn={loggedIn}/>} />
         <Route exact path="/posts" component={Posts}/>
-        <Route  path="/posts/:id" component={Post} />
+        <Route  path="/posts/:post_id/comments" component={Post} />
       </Switch>
     </div>
   );

@@ -64,6 +64,13 @@
   margin-right: 20px;
 }
 
+.scroll-to-top {
+  position: fixed;
+  bottom: 0.5rem;
+  right: 0.5rem;
+  animation: fadeIn 700ms ease-in-out 1s both;
+  cursor: pointer;
+}
 
 .nav_link {
   text-decoration: none;

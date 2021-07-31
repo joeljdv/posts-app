@@ -18,6 +18,15 @@ class CommentsController < ApplicationController
         render json: comment
     end
 
+    def destroy
+        user = User.find_by(id: session[:user_id])
+        comment = user.comments.find_by(id: params[:id])
+        if comment
+            comment.destroy
+            head :no_content
+        end
+    end
+
     private
 
     def authorize
