@@ -52,8 +52,6 @@
   height: auto;
 }
 
-
-
 .author_name {
   position:absolute;
   margin-top: 0;
@@ -71,7 +69,10 @@
   text-decoration: none;
 }
 
+a {
+  color: black;
 
+}
 a:visited { text-decoration: none; color:black; }
 a:hover { text-decoration: none; color:black; }
 a:focus { text-decoration: none; color:black; }
