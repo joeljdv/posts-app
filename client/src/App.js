@@ -1,7 +1,7 @@
 
 import './App.css';
 import React, {useState, useEffect} from 'react';
-import {BrowserRouter as Router, Route, Switch} from 'react-router-dom'
+import {BrowserRouter as Router, Route, Switch, useHistory} from 'react-router-dom'
 import Home from './components/Home'
 import Navbar from './components/Navbar';
 import Login from './containers/Login';
@@ -14,6 +14,7 @@ function App() {
 
   const [loggedIn, setLoggedIn] = useState(false)
   const [user, setUser] = useState({})
+
 
 useEffect( () => {
   fetch('/me')
@@ -52,7 +53,8 @@ const logoutUser = () => {
         <Route exact path="/signup" render={routerProps => <Signup {...routerProps} loginUser={loginUser} loggedIn={loggedIn}/>} />
         <Route exact path="/login" render={routerProps => <Login {...routerProps} loginUser={loginUser} loggedIn={loggedIn}/>} />
         <Route exact path="/posts" component={Posts}/>
-        <Route  path="/posts/:post_id/comments" component={Post} />
+        <Route exact path="/posts/:post_id/comments" component={Post} />
+        <Route path="/posts/:post_id/comments/:id" component={Post} />
       </Switch>
     </div>
   );

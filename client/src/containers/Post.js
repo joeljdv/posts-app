@@ -1,5 +1,5 @@
 import React, {useState, useEffect} from 'react'
-import { Link } from 'react-router-dom'
+import { Link} from 'react-router-dom'
 import CommentForm from './CommentForm'
 import EditPost from './EditPost'
 import Comments from './Comments'
@@ -13,6 +13,8 @@ const Post = (props) => {
     const [comments, setComments] = useState([])
     const [id, setId] = useState("")
     const [postUserId, setPostUserId] = useState("")
+    
+
 
     useEffect(() => {
         fetch(`/posts/${props.match.params.post_id}`)
@@ -25,11 +27,7 @@ const Post = (props) => {
         })
     }, [])
 
-    const deletePost = () => {
-        fetch(`/posts/${props.match.params.post_id}`, {
-            method: "DELETE"
-        })
-    }
+
     
     const editPost = (p) => {
         fetch(`/posts/${props.match.params.post_id}`, {
@@ -83,7 +81,7 @@ const Post = (props) => {
         fetch(`/comments/${props.match.params.id}`, {
             method: "DELETE"
         })
-        console.log(e.target.id)
+        console.log(props.match.params.id)
     }
 
     const commentsList = comments.map(c => <Comments delete={deleteComment} comment={c} key={c.id} post={post}/>)
@@ -102,6 +100,12 @@ const Post = (props) => {
 
     const cancelEdit = () => {
         setFormFlag(false)
+    }
+
+    const deletePost = () => {
+        fetch(`/posts/${props.match.params.post_id}`, {
+            method: "DELETE"
+        })
     }
 
 

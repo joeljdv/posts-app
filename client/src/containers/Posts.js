@@ -5,8 +5,8 @@ import AddPostForm from './AddPostForm'
 const Posts = () => {
 
     const [posts, setPosts] = useState([])
-    const [error, setError] = useState("")
     const [formFlag, setFormFlag] = useState(false)
+    const [postError, setPostError] = useState([])
 
 
     useEffect(() =>{
@@ -28,13 +28,22 @@ const Posts = () => {
         })
         .then(r => r.json())
         .then(data => {
-            console.log(data)
-            setPosts([data, ...posts])
-            setFormFlag(false) 
+            if(data.errors) {
+                console.log(data.errors)
+                setPostError(data.errors)
+            }else {
+                console.log(data)
+                setPosts([data, ...posts])
+                setPostError([])
+                setFormFlag(false)
+            }
         })
     }
 
-    const postsList = posts.map(p => <PostLink key={p.id} post={p} />)
+
+    const postsList = posts.map(p => <PostLink  key={p.id} post={p} />)
+
+    const errorList = postError.map(e => <div key={e.id}><li>{e}</li><br/></div>)
 
     return (
         <div className="posts">
@@ -43,6 +52,7 @@ const Posts = () => {
                 <AddPostForm addPost={addPost}/> :
                 <button onClick={() => {setFormFlag(true)}}>Add Post</button>
             }
+            {errorList}
             <br/>
             <br/>
             {postsList}
