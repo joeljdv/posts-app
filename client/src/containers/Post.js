@@ -82,6 +82,9 @@ const Post = (props) => {
             method: "DELETE"
         })
         console.log(props.match.params.id)
+        let id = props.match.params.id
+        const arr = comments.filter(c => c.id != id)
+        setComments(arr)
     }
 
     const commentsList = comments.map(c => <Comments delete={deleteComment} comment={c} key={c.id} post={post}/>)
