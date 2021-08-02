@@ -8,7 +8,7 @@ const Post = (props) => {
 
     const [post, setPost] = useState({})
     const [user, setUser] = useState("")
-    const [error, setError] = useState("")
+    const [commentError, setCommentError] = useState("")
     const [formFlag, setFormFlag] = useState(false)
     const [comments, setComments] = useState([])
     const [id, setId] = useState("")
@@ -70,8 +70,14 @@ const Post = (props) => {
         })
         .then(r => r.json())
         .then(data => {
-            console.log(data)
-            setComments([...comments, data])
+            if(data.errors) {
+                console.log(data.errors) 
+                setCommentError(data.errors)
+            }else {
+                console.log(data)
+                setComments([...comments, data])
+                setCommentError("")
+            }
         })
     }
 
@@ -128,6 +134,7 @@ const Post = (props) => {
                 <button className="btn" onClick={() => setFormFlag(true)}><i className="fas fa-edit"></i></button>}
                 <hr/>
                 <CommentForm addComment={addComment} /> 
+                {commentError}
                 <hr/>
                 <br/>
                 {commentsList}

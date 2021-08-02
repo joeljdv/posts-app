@@ -15,7 +15,11 @@ class CommentsController < ApplicationController
         user = User.find_by(id: session[:user_id])
         post = Post.find_by(id: params[:post_id])
         comment = Comment.create(content: params[:content], user_id: user.id, post_id: post.id)
-        render json: comment
+        if comment.valid?
+            render json: comment, status: :created
+        else 
+            render json: {errors: comment.errors.full_messages}, status: :unprocessable_entity
+        end
     end
 
     def destroy

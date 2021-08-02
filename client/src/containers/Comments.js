@@ -29,7 +29,7 @@ const Comments = (props) => {
                 <div className = "comment_text" >
                     <h4>{props.comment.user.username}</h4>
                     <p>{props.comment.content}</p>
-                    {clicked ? <button onClick={props.delete}>delete</button> : null}    
+                    {clicked ? <button onClick={props.delete}><i className="fa fa-trash"></i></button> : null}    
                 </div>
                 </Link>
                 <br/>
