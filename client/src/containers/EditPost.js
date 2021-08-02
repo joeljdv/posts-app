@@ -34,7 +34,7 @@ const EditPost = (props) => {
                 value = {content}>
                 </textarea>
                 <br/>
-                <input type="submit"/>
+                <input className="form_submit" type="submit"/>
             </form>
             <button onClick={props.cancel}>cancel</button>
         </div>

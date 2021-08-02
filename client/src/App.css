@@ -76,7 +76,13 @@
   text-decoration: none;
 }
 
+button {
+  border-radius: 50px;
+}
 
+.form_submit {
+  border-radius: 50px;
+}
 
 a {
   color: black;
