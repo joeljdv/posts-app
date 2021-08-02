@@ -55,7 +55,7 @@ const Posts = () => {
             <br/>           
              {formFlag ?
                 <AddPostForm addPost={addPost} cancel={cancelPost}/> :
-                <button onClick={() => {setFormFlag(true)}}>Add Post</button>
+                <button onClick={() => {setFormFlag(true)}} title="Add Post"><i className="fas fa-plus"></i></button>
             }
             {errorList}
             <br/>
