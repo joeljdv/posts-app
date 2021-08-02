@@ -40,6 +40,11 @@ const Posts = () => {
         })
     }
 
+    const cancelPost = () => {
+        setFormFlag(false)
+        setPostError([])
+    }
+
 
     const postsList = posts.map(p => <PostLink  key={p.id} post={p} />)
 
@@ -49,7 +54,7 @@ const Posts = () => {
         <div className="posts">
             <br/>           
              {formFlag ?
-                <AddPostForm addPost={addPost}/> :
+                <AddPostForm addPost={addPost} cancel={cancelPost}/> :
                 <button onClick={() => {setFormFlag(true)}}>Add Post</button>
             }
             {errorList}

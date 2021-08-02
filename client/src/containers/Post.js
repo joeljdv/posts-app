@@ -118,7 +118,6 @@ const Post = (props) => {
     }
 
 
-
     if(postUserId === id) {
         return (
             <div>

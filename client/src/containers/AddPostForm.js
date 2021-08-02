@@ -15,7 +15,7 @@ const AddPostForm = (props) => {
     }
 
     return (
-        <div>
+        <div className="add_form">
             <form onSubmit={handleSubmit}>
                 <label>Title:</label>
                 <input 
@@ -32,7 +32,8 @@ const AddPostForm = (props) => {
                 value = {content}>
                 </textarea>
                 <br/>
-                <input type="submit"/>
+                <input className="form_submit" type="submit"/>
+                <button className="form_cancel" onClick={props.cancel}>cancel</button>
             </form>
         </div>
     )
