@@ -15,7 +15,7 @@ function App() {
 
   const [loggedIn, setLoggedIn] = useState(false)
   const [user, setUser] = useState({})
-  // const [profilePic, setProfilePic] = useState("https://www.pngfind.com/pngs/m/676-6764065_default-profile-picture-transparent-hd-png-download.png")
+ 
 
 
 useEffect( () => {
@@ -52,13 +52,13 @@ const logoutUser = () => {
       <h1>H</h1>
       </div>
       <div className="column middle">
-        <Navbar user={user} loggedIn={loggedIn} logoutUser={logoutUser}/>
+        <Navbar user={user} loggedIn={loggedIn} logoutUser={logoutUser} />
         <br/>
         <Switch>
           <Route exact path="/" component={Home} />
           <Route exact path="/signup" render={routerProps => <Signup {...routerProps} loginUser={loginUser} loggedIn={loggedIn}/>} />
           <Route exact path="/login" render={routerProps => <Login {...routerProps} loginUser={loginUser} loggedIn={loggedIn}/>}>
-            {loggedIn ? <Redirect to="/user/:id"/> :  <Login loginUser={loginUser} loggedIn={loggedIn}/>}
+            {loggedIn ? <Redirect to="/user"/> :  <Login loginUser={loginUser} loggedIn={loggedIn}/>}
           </Route>
           <Route exact path="/posts" component={Posts}/>
           <Route exact path="/posts/:post_id/comments" component={Post} />

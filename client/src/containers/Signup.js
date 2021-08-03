@@ -68,8 +68,6 @@ const Signup = (props) => {
                     value={passwordConfirmation}
                     onChange={(e) => setPasswordConfirmation(e.target.value)}/>
                     <br/>
-                    <input type="file" onChange={(e) => setImg(URL.createObjectURL(e.target.files[0]))}/>
-                    <br/>
                     <input type="submit"/>
                 </form>
                 {errors ? <div>{errorList}</div> : null}  

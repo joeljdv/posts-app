@@ -9,8 +9,6 @@ function Profile() {
     const [formFlag, setFormFlag] = useState(false)
     const [postError, setPostError] = useState([])
     const [user, setUser] = useState({})
-    const [clicked, setClicked] = useState(false)
-    const [image, setImage] = useState("")
 
     useEffect(() => {
         fetch("/user/posts")
@@ -27,7 +25,6 @@ function Profile() {
         .then(data => {
             setUser(data)
             console.log(data)
-            setImage(data.profile_img)
         })
     }, [])
     
@@ -87,7 +84,6 @@ function Profile() {
     } else {
         return (
             <div>
-                <img className="profile_img" src={image}/>
                 <div className="posts">
                     <br/>           
                     {formFlag ?

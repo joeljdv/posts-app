@@ -36,7 +36,8 @@ const EditPost = (props) => {
                 <br/>
                 <input className="form_submit" type="submit"/>
             </form>
-            <button onClick={props.cancel}>cancel</button>
+            <button onClick={props.cancel} title="Cancel"><i className
+                ="fas fa-times"></i></button>
         </div>
     )
 }
