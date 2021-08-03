@@ -21,6 +21,9 @@
   height:100%;
 }
 
+.profile_img{
+  width: 50px;
+}
 
 .middle {
   position:absolute;

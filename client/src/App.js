@@ -15,6 +15,7 @@ function App() {
 
   const [loggedIn, setLoggedIn] = useState(false)
   const [user, setUser] = useState({})
+  // const [profilePic, setProfilePic] = useState("https://www.pngfind.com/pngs/m/676-6764065_default-profile-picture-transparent-hd-png-download.png")
 
 
 useEffect( () => {

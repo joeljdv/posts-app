@@ -18,6 +18,16 @@ class UsersController < ApplicationController
         end
     end
 
+    def update
+        user = User.find_by(id: session[:user_id])
+        if user
+            user.update(params[:profile_img])
+            render json: user
+        else
+            render json: {error: "Not authorized"}
+        end
+    end
+
     private
 
     def user_params
