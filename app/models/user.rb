@@ -8,5 +8,5 @@ class User < ApplicationRecord
     validates_confirmation_of :password
     validates :password, presence: true, confirmation: true
     validates :password_confirmation, presence: true
-
+    validates :profile_img, presence: true
 end

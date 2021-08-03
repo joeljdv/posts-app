@@ -82,6 +82,10 @@ const Signup = (props) => {
                 <img onClick={handleClick} tabindex="4" className="avatar" src="https://icon-library.com/images/avatar-icon-images/avatar-icon-images-4.jpg"/>
                 <img onClick={handleClick} tabindex="5" className="avatar" src="https://freepngimg.com/download/facebook/62681-flat-icons-face-computer-design-avatar-icon.png"/>
                 <img onClick={handleClick} tabindex="6" className="avatar" src="https://cdn4.iconfinder.com/data/icons/avatars-21/512/avatar-circle-human-male-black-7-512.png"/>
+                <br/>
+                <img onClick={handleClick} tabindex="7" className="avatar" src="https://cdn3.iconfinder.com/data/icons/avatars-9/145/Avatar_Cat-512.png"/>
+                <img onClick={handleClick} tabindex="8" className="avatar" src="https://cdn3.iconfinder.com/data/icons/avatars-9/145/Avatar_Penguin-512.png"/>
+                <img onClick={handleClick} tabindex="9" className="avatar" src="https://lh3.googleusercontent.com/proxy/aNcQ_V4Qht74v-TD81zeR-YM_vjS0zEDEQFk4bZ0fCXbR6Q6ySkgRrg6sFzYF669YYS-A7tMO-Gu"/>
                 {errors ? <div>{errorList}</div> : null}  
             </div>
            
