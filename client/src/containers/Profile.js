@@ -24,7 +24,6 @@ function Profile(props) {
                 setUser(data)
                 }
             }
- 
         })
     }, [])
 

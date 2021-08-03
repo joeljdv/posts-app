@@ -3,7 +3,11 @@ class PostsController < ApplicationController
     
     def index
         posts = Post.all.order(created_at: :desc)
-        render json: posts, include: ['user','comments', 'comments.user']
+        if posts
+            render json: posts, include: ['user','comments', 'comments.user']
+        else
+            render json: {error: "Not authorized"}
+        end
     end
 
     def show

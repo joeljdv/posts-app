@@ -7,14 +7,21 @@ const Posts = () => {
     const [posts, setPosts] = useState([])
     const [formFlag, setFormFlag] = useState(false)
     const [postError, setPostError] = useState([])
+    const [error, setError] = useState("")
 
 
     useEffect(() =>{
         fetch('/posts')
         .then(r => r.json())
         .then(data => {
-            console.log(data)
-            setPosts(data)
+            if(data){
+                if(data.error){
+                    setError(data.error)
+                }else {
+                    console.log(data)
+                    setPosts(data)
+                }
+            }
         })
     }, [])
 
@@ -50,18 +57,27 @@ const Posts = () => {
 
     const errorList = postError.map(e => <div key={e.id}><li>{e}</li><br/></div>)
 
-    return (
-        <div className="posts">
-            <br/>           
-             {formFlag ?
-                <AddPostForm addPost={addPost} cancel={cancelPost}/> :
-                <button onClick={() => {setFormFlag(true)}} title="Add Post"><i className="fas fa-plus"></i></button>
-            }
-            {errorList}
-            <br/>
-            <br/>
-            {postsList}
-        </div>
-    )
+    if(error === "") {
+        return (
+            <div className="posts">
+                <br/>           
+                 {formFlag ?
+                    <AddPostForm addPost={addPost} cancel={cancelPost}/> :
+                    <button onClick={() => {setFormFlag(true)}} title="Add Post"><i className="fas fa-plus"></i></button>
+                }
+                {errorList}
+                <br/>
+                <br/>
+                {postsList}
+            </div>
+        )
+    }else {
+        return(
+            <div>
+                {error}
+                <h1>Please Log in or Signup</h1>
+            </div>
+        )
+    }
 }
 export default Posts

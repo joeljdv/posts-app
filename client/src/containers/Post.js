@@ -136,7 +136,9 @@ const Post = (props) => {
                 {commentError}
                 <hr/>
                 <br/>
-                {commentsList}
+                <div className="comments">
+                    {commentsList}
+                </div>
             </div>
     )
     }else {

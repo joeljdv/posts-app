@@ -12,13 +12,12 @@ const Navbar = (props) => {
                     <h2>{props.user.username}</h2>
                 </Link>
                 <br/>
-                <Link to='/'>  
+                <Link to='/signup'>  
                     <button onClick={props.logoutUser}>Logout</button>
                 </Link>         
                 <Link to='/posts'>
                     <button>posts</button>
                 </Link>
-                <hr/>
             </div>
             
         )

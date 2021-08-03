@@ -24,23 +24,33 @@ const Comments = (props) => {
 
     if(userId === props.comment.user.id || userId === props.post.user.id) {
         return (
-            <div className="comments" onClick={handleClicked}>
-                <Link to={`/posts/${props.post.id}/comments/${props.comment.id}`}>
-                <div className = "comment_text" >
-                    <h4>{props.comment.user.username}</h4>
-                    <p>{props.comment.content}</p>
-                    {clicked ? <button onClick={props.delete}><i className="fa fa-trash"></i></button> : null}    
+            <div>
+                <div className="comment" onClick={handleClicked}>
+                    <div className="commentor">
+                        <img src={props.comment.user.profile_img}/>
+                        <h4>{props.comment.user.username}</h4>
+                    </div>
+                    <Link to={`/posts/${props.post.id}/comments/${props.comment.id}`}>
+                        <div className = "comment_text" >
+                            <p>{props.comment.content}</p>
+                            {clicked ? <button onClick={props.delete}><i className="fa fa-trash"></i></button> : null}    
+                        </div>
+                    </Link>
+                    <br/>
                 </div>
-                </Link>
-                <br/>
             </div>
         )
     }else {
         return (
         <div>
-            <div className = "comment_text">
+            <div className="comment" >
+                <div className="commentor">
+                    <img src={props.comment.user.profile_img}/>
                     <h4>{props.comment.user.username}</h4>
-                    <p>{props.comment.content}</p>
+                </div>
+                <div className = "comment_text">
+                        <p>{props.comment.content}</p>
+                </div>
             </div>
             <br/>
         </div>   

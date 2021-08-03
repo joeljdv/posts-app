@@ -16,40 +16,42 @@ function App() {
   const [loggedIn, setLoggedIn] = useState(false)
   const [user, setUser] = useState({})
   const [image, setImage] = useState("")
+  const [id, setId] = useState("")
  
 
 
-useEffect( () => {
-  fetch('/me')
-  .then(r => {
-    if (r.ok){
-      r.json()
-      .then(u => {
-        setLoggedIn(true)
-        setUser(u)
-        setImage(u.profile_img)
-      })
-    }
-  })
-}, [])
+  useEffect( () => {
+    fetch('/me')
+    .then(r => {
+      if (r.ok){
+        r.json()
+        .then(u => {
+          setLoggedIn(true)
+          setUser(u)
+          setImage(u.profile_img)
+        })
+      }
+    })
+  }, [])
 
-const loginUser = (user) => {
-  setLoggedIn(true)
-  setUser(user)
-  setImage(user.profile_img)
-}
+  const loginUser = (user) => {
+    setLoggedIn(true)
+    setUser(user)
+    setImage(user.profile_img)
+  }
 
-const logoutUser = () => {
-  fetch('/logout', {
-    method:'DELETE'
-  })
-  .then(() => {
-    console.log("Logged out")
-    setLoggedIn(false)
-    setUser({})
-    setImage("")
-  })
-}
+  const logoutUser = () => {
+    fetch('/logout', {
+      method:'DELETE'
+    })
+    .then(() => {
+      console.log("Logged out")
+      setLoggedIn(false)
+      setUser({})
+      setImage("")
+    })
+  }
+
   return (
     <div className="row">
       <div className="column left"> 
@@ -62,7 +64,7 @@ const logoutUser = () => {
           <Route exact path="/user/:id" component={Profile} />
           <Route exact path="/signup" render={routerProps => <Signup {...routerProps} loginUser={loginUser} loggedIn={loggedIn}/>} />
           <Route exact path="/login" render={routerProps => <Login {...routerProps} loginUser={loginUser} loggedIn={loggedIn}/>}>
-            {loggedIn ? <Redirect to="/user"/> :  <Login loginUser={loginUser} loggedIn={loggedIn}/>}
+            {loggedIn ? <Redirect to="/posts"/> :  <Login loginUser={loginUser} loggedIn={loggedIn}/>}
           </Route>
           <Route exact path="/posts" component={Posts}/>
           <Route exact path="/posts/:post_id/comments" component={Post} />

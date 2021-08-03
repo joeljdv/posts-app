@@ -91,6 +91,47 @@
   left: 40px;
 }
 
+.comments {
+  /* margin-left: 10%;
+  margin-right: 10%; */
+  overflow: hidden;
+  width: 100%;
+}
+
+.comment {
+  margin-left: 15%;
+  overflow: auto;
+  width: 70%;
+  border-style: solid;
+  border-width: 2px;
+  border-radius: 20px;
+  height: auto;
+  position: relative;
+}
+
+.commentor {
+  position: absolute;
+  top: 5px;
+  left: 7px;
+  height: 90%;
+  width: 25%;
+}
+
+.commentor img {
+  position: absolute;
+  width: 30px;
+  height: 30px;
+  border: black solid 2px;
+  border-radius: 50%;
+  left: 0px;
+}
+
+.commentor h4 {
+  position: absolute;
+  left: 40px;
+  margin: 0;
+}
+
 .author_name {
   position:absolute;
   margin-top: 0;
