@@ -5,6 +5,7 @@ const Signup = (props) => {
     const [username, setUsername] = useState("")
     const [password, setPassword] = useState("")
     const [passwordConfirmation, setPasswordConfirmation] = useState("")
+    const [img, setImg] = useState("")
     const [errors, setErrors] = useState([])
 
     const handleSubmit = (e) => {
@@ -17,7 +18,8 @@ const Signup = (props) => {
             body: JSON.stringify({
                 username: username,
                 password: password,
-                password_confirmation: passwordConfirmation
+                password_confirmation: passwordConfirmation,
+                profile_img: img
             })
         })
         .then(r => r.json())
@@ -65,6 +67,8 @@ const Signup = (props) => {
                     id="password_confirmarion"
                     value={passwordConfirmation}
                     onChange={(e) => setPasswordConfirmation(e.target.value)}/>
+                    <br/>
+                    <input type="file" onChange={(e) => setImg(URL.createObjectURL(e.target.files[0]))}/>
                     <br/>
                     <input type="submit"/>
                 </form>

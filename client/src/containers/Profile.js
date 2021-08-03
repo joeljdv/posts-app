@@ -27,6 +27,7 @@ function Profile() {
         .then(data => {
             setUser(data)
             console.log(data)
+            setImage(data.profile_img)
         })
     }, [])
     
@@ -86,7 +87,7 @@ function Profile() {
     } else {
         return (
             <div>
-                <img />
+                <img className="profile_img" src={image}/>
                 <div className="posts">
                     <br/>           
                     {formFlag ?

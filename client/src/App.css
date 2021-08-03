@@ -22,7 +22,9 @@
 }
 
 .profile_img{
-  width: 50px;
+  width: 70px;
+  height: 70px;
+  border-radius: 50%;
 }
 
 .middle {
