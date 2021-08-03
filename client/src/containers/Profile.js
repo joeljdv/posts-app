@@ -84,6 +84,7 @@ function Profile() {
     } else {
         return (
             <div>
+                <img className="profile_img" src={user.profile_img}/>
                 <div className="posts">
                     <br/>           
                     {formFlag ?
