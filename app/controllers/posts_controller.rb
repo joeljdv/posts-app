@@ -43,6 +43,16 @@ class PostsController < ApplicationController
         end
     end
 
+    def user_posts 
+        user = User.find_by(id: session[:user_id])
+        posts = user.posts
+        if posts
+            render json: posts
+        else
+            render json: {errors: posts.errors.full_messages}
+        end
+    end
+
     private
 
     def posts_params
