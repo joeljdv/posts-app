@@ -1,5 +1,5 @@
 class PostsController < ApplicationController
-    before_action :authorize
+    before_action :authorize, except: [:user_posts]
     
     def index
         posts = Post.all.order(created_at: :desc)
@@ -44,12 +44,11 @@ class PostsController < ApplicationController
     end
 
     def user_posts 
-        user = User.find_by(id: session[:user_id])
-        posts = user.posts
-        if posts
-            render json: posts
+        user = User.find_by(id: params[:id])
+        if user
+            render json: user, include: ['posts']
         else
-            render json: {errors: posts.errors.full_messages}
+            render json: {error: "No Posts Found"}, status: :not_found
         end
     end
 

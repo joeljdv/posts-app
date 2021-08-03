@@ -7,8 +7,9 @@ const Navbar = (props) => {
     if (props.loggedIn) {
         return (
             <div>
-                <Link to="/user">
-                    <h1>Hello {props.user.username}</h1>
+                <Link to={`/user/${props.user.id}`}>
+                    <img className="profile_img" src={props.profileImg} />
+                    <h2>{props.user.username}</h2>
                 </Link>
                 <br/>
                 <Link to='/'>  
@@ -17,6 +18,7 @@ const Navbar = (props) => {
                 <Link to='/posts'>
                     <button>posts</button>
                 </Link>
+                <hr/>
             </div>
             
         )
@@ -29,6 +31,7 @@ const Navbar = (props) => {
                 <Link to='/login'>
                     <button>Login</button>
                 </Link>
+                <hr/>
             </div>
     ) 
     }

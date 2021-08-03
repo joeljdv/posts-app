@@ -46,7 +46,7 @@ const Posts = () => {
     }
 
 
-    const postsList = posts.map(p => <PostLink  key={p.id} post={p} />)
+    const postsList = posts.map(p => <PostLink id={p.id} key={p.id} post={p} user={p.user}/>)
 
     const errorList = postError.map(e => <div key={e.id}><li>{e}</li><br/></div>)
 

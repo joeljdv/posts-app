@@ -28,6 +28,15 @@ class UsersController < ApplicationController
         end
     end
 
+    def user_profile
+        user = User.find_by(id: params[:id])
+        if user
+            render json: user
+        else
+            render json: {error: "Not Found"}, status: :not_found
+        end
+    end
+
     private
 
     def user_params

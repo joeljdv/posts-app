@@ -3,30 +3,39 @@ import Post from './Post'
 import PostLink from '../components/PostLink'
 import AddPostForm from './AddPostForm'
 
-function Profile() {
+function Profile(props) {
 
     const [posts, setPosts] = useState([])
     const [formFlag, setFormFlag] = useState(false)
     const [postError, setPostError] = useState([])
     const [user, setUser] = useState({})
+    const [errors, setErrors] = useState([])
 
     useEffect(() => {
-        fetch("/user/posts")
+        fetch(`/user/${props.match.params.id}`)
         .then(r => r.json())
         .then(data => {
-            console.log(data)
-            setPosts(data)
+            if(data) {
+                if(data.error) {
+                    setErrors(data.error)
+                }else {
+                console.log(data.posts)
+                setPosts(data.posts)           
+                setUser(data)
+                }
+            }
+ 
         })
     }, [])
 
-    useEffect(() => {
-        fetch("/me")
-        .then(r => r.json())
-        .then(data => {
-            setUser(data)
-            console.log(data)
-        })
-    }, [])
+    // useEffect(() => {
+    //     fetch("/me")
+    //     .then(r => r.json())
+    //     .then(data => {
+    //         setUser(data)
+    //         console.log(data)
+    //     })
+    // }, [])
     
     const addPost = (post) => {
         fetch('/posts', {
@@ -60,45 +69,27 @@ function Profile() {
 
 
 
-    const postsList = posts.map(p => <PostLink  key={p.id} post={p} />)
+    const postsList = posts.map(p => <PostLink  key={p.id} post={p} user={user} />)
 
     const errorList = postError.map(e => <div key={e.id}><li>{e}</li><br/></div>)
 
-    if(user.profile_img === null){
-        return (
-            <div>
-                <img className="profile_img" src={"https://www.pngfind.com/pngs/m/676-6764065_default-profile-picture-transparent-hd-png-download.png"} />  
-                <div className="posts">
-                    <br/>           
-                    {formFlag ?
-                        <AddPostForm addPost={addPost} cancel={cancelPost}/> :
-                        <button onClick={() => {setFormFlag(true)}} title="Add Post"><i className="fas fa-plus"></i></button>
-                    }
-                    {errorList}
-                    <br/>
-                    <br/>
-                    {postsList}
-                </div>
+    return (
+        <div>
+            <img className="profile_img" src={user.profile_img}/>
+            <h2>{user.username}</h2>
+            <div className="posts">
+                <br/>           
+                {formFlag ?
+                    <AddPostForm addPost={addPost} cancel={cancelPost}/> :
+                    <button onClick={() => {setFormFlag(true)}} title="Add Post"><i className="fas fa-plus"></i></button>
+                }
+                {errorList}
+                <br/>
+                <br/>
+                {postsList}
             </div>
-        )
-    } else {
-        return (
-            <div>
-                <img className="profile_img" src={user.profile_img}/>
-                <div className="posts">
-                    <br/>           
-                    {formFlag ?
-                        <AddPostForm addPost={addPost} cancel={cancelPost}/> :
-                        <button onClick={() => {setFormFlag(true)}} title="Add Post"><i className="fas fa-plus"></i></button>
-                    }
-                    {errorList}
-                    <br/>
-                    <br/>
-                    {postsList}
-                </div>
-            </div>
-        )
-    }
+        </div>
+    )
 }
 
 export default Profile

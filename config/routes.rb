@@ -4,7 +4,8 @@ Rails.application.routes.draw do
   post "/signup", to: "users#create"
   get"/me", to: "users#show"
   patch "/me", to: "users#update"
-  get"/user/posts", to: "posts#user_posts"
+  get"/user/:id", to: "posts#user_posts"
+  
   
   
   resources :posts do 

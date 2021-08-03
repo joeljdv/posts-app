@@ -19,6 +19,7 @@
   right: 0;
   border: 3px solid #73AD21;
   height:100%;
+  text-align: center;
 }
 
 .avatar{
@@ -66,6 +67,28 @@
   width: 70%;
   border-style: solid;
   height: auto;
+  position: relative;
+}
+
+.user_inf {
+  position: absolute;
+  top: 5px;
+  left: 5px;
+  height: 90%;
+  width: 25%;
+}
+
+.user_inf img {
+  position: absolute;
+  width: 30px;
+  height: 30px;
+  border: black solid 2px;
+  border-radius: 50%;
+  left: 0px;
+}
+
+.user_inf h4 {
+  left: 40px;
 }
 
 .author_name {
