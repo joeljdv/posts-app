@@ -21,11 +21,23 @@
   height:100%;
 }
 
-.profile_img{
+.avatar{
+  border: black solid;
   width: 70px;
   height: 70px;
   border-radius: 50%;
+  margin: 10px;
 }
+
+
+
+.avatar:hover, .avatar:focus{
+  border: steelblue solid;
+  width: 100px;
+  height: 100px;
+}
+
+
 
 .middle {
   position:absolute;
