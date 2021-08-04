@@ -11,8 +11,12 @@ class PostsController < ApplicationController
     end
 
     def show
-        post = Post.all.find_by(id: params[:id])
-        render json: post, include: ['user', 'comments', 'comments.user']
+        post = Post.find_by(id: params[:id])
+        if post
+            render json: post, include: ['user', 'comments', 'comments.user']
+        else
+            render json: {error: "Post Not Found"}, status: :not_found
+        end
     end
 
     def create

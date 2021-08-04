@@ -21,6 +21,8 @@ const Posts = () => {
                     console.log(data)
                     setPosts(data)
                 }
+            }else {
+                setError("Post not Found")
             }
         })
     }, [])

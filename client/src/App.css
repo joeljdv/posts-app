@@ -211,6 +211,14 @@ table {
   font-size: 30px;
 }
 
+.fa-arrow-circle-left{
+  font-size: 150px;
+}
+
+.fa-arrow-circle-left:hover {
+  font-size: 200px;
+}
+
 .form {
   display: inline-block;
   margin: 10px;
