@@ -26,7 +26,7 @@ function Profile(props) {
                 }
             }
         })
-    }, [])
+    }, [props.match.params.id])
 
     useEffect(() => {
         fetch("/me")
