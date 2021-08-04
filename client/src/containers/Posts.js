@@ -8,6 +8,8 @@ const Posts = () => {
     const [formFlag, setFormFlag] = useState(false)
     const [postError, setPostError] = useState([])
     const [error, setError] = useState("")
+    const [count, setCount] = useState("")
+    
 
 
     useEffect(() =>{
@@ -18,6 +20,7 @@ const Posts = () => {
                 if(data.error){
                     setError(data.error)
                 }else {
+                    setCount(data.length)
                     console.log(data)
                     setPosts(data)
                 }
@@ -25,7 +28,7 @@ const Posts = () => {
                 setError("Post not Found")
             }
         })
-    }, [])
+    }, [count])
 
     const addPost = (post) => {
         fetch('/posts', {

@@ -306,6 +306,10 @@ table {
   border-radius: 50px;
 }
 
+.nav_profile h2:hover{
+  color: #39A2DB;
+}
+
 a {
   color: black;
   text-decoration: none;
