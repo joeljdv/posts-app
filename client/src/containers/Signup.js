@@ -85,7 +85,7 @@ const Signup = (props) => {
                 <br/>
                 <img onClick={handleClick} tabindex="7" className="avatar" src="https://cdn3.iconfinder.com/data/icons/avatars-9/145/Avatar_Cat-512.png"/>
                 <img onClick={handleClick} tabindex="8" className="avatar" src="https://cdn3.iconfinder.com/data/icons/avatars-9/145/Avatar_Penguin-512.png"/>
-                <img onClick={handleClick} tabindex="9" className="avatar" src="https://lh3.googleusercontent.com/proxy/aNcQ_V4Qht74v-TD81zeR-YM_vjS0zEDEQFk4bZ0fCXbR6Q6ySkgRrg6sFzYF669YYS-A7tMO-Gu"/>
+                <img onClick={handleClick} tabindex="9" className="avatar" src="https://i0.wp.com/cdn3.iconfinder.com/data/icons/avatars-9/145/Avatar_Dog-512.png"/>
                 {errors ? <div>{errorList}</div> : null}  
             </div>
            
