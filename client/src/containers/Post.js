@@ -22,7 +22,7 @@ const Post = (props) => {
         .then(data => {
             console.log(data)
             setPost(data)
-            setUser(data.user.username)
+            setUser(data.user)
             setPostUserId(data.user.id)
         })
     }, [])
@@ -120,21 +120,26 @@ const Post = (props) => {
 
     if(postUserId === id) {
         return (
-            <div>
-                <div>
-                    <h1>{post.title}</h1>
-                    <p>{post.content}</p>
-                    <p>by: {user}</p>
+            <div className="single_post">
+                <div className="single_post_inf">
+                    <div className="single_post_inf user">
+                        <Link to={`/user/${user.id}`}>
+                            <img className="profile_img" src ={user.profile_img}/>
+                            <h3> Posted by {user.username}</h3>
+                        </Link>
+                    </div>
+                    <div className="single_post_inf content">
+                        <h2>{post.title}</h2>
+                        <p>{post.content}</p>
+                    </div>
                 </div>
                 <Link to="/posts">
-                    <button className="btn" onClick={deletePost}><i className="fa fa-trash"></i></button>
+                    <div className="btn" onClick={deletePost}><i className="fa fa-trash"></i></div>
                 </Link>  
                 {formFlag ? <EditPost post={post} editPost={editPost} cancel={cancelEdit} /> :
-                <button className="btn" onClick={() => setFormFlag(true)}><i className="fas fa-edit"></i></button>}
-                <hr/>
+                    <div className="btn" onClick={() => setFormFlag(true)}><i className="fas fa-edit"></i></div>}
                 <CommentForm addComment={addComment} /> 
                 {commentError}
-                <hr/>
                 <br/>
                 <div className="comments">
                     {commentsList}
@@ -143,17 +148,24 @@ const Post = (props) => {
     )
     }else {
         return (
-            <div>
-                <div>
-                    <h1>{post.title}</h1>
-                    <p>{post.content}</p>
-                    <p>by: {user}</p>
+            <div className="single_post">
+                <div className="single_post_inf">
+                    <div className="single_post_inf user">
+                        <Link to={`/user/${user.id}`}>
+                            <img className="profile_img" src ={user.profile_img}/>
+                            <h3> Posted by {user.username}</h3>
+                        </Link>
+                    </div>
+                    <div className="single_post_inf content">
+                        <h2>{post.title}</h2>
+                        <p>{post.content}</p>
+                    </div>
                 </div>
                    <CommentForm addComment={addComment} />
-                    
-                <hr/>
                 <br/>
-                {commentsList}
+                <div className="comments">
+                    {commentsList}
+                </div>
             </div> 
         )
 

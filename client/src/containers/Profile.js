@@ -80,7 +80,7 @@ function Profile(props) {
                 <br/>           
                 {formFlag ?
                     <AddPostForm addPost={addPost} cancel={cancelPost}/> :
-                    <button onClick={() => {setFormFlag(true)}} title="Add Post"><i className="fas fa-plus"></i></button>
+                    <div onClick={() => {setFormFlag(true)}} title="Add Post"><i className="fas fa-plus"></i></div>
                 }
                 {errorList}
                 <br/>

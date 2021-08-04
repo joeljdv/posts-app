@@ -6,31 +6,50 @@ const Navbar = (props) => {
 
     if (props.loggedIn) {
         return (
-            <div>
-                <Link to={`/user/${props.user.id}`}>
+            <div onClick={props.visible}>
+                <Link to={`/user/${props.user.id}`} >
                     <img className="profile_img" src={props.profileImg} />
                     <h2>{props.user.username}</h2>
                 </Link>
                 <br/>
-                <Link to='/signup'>  
-                    <button onClick={props.logoutUser}>Logout</button>
-                </Link>         
-                <Link to='/posts'>
-                    <button>posts</button>
-                </Link>
+                <table>
+                    <tr>
+                        <td>
+                            <Link to='/signup'>  
+                                <div className="btn" onClick={props.logoutUser}>Logout</div>
+                            </Link>         
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <Link to='/posts'>
+                                <div className="btn">posts</div>
+                            </Link>
+                        </td>
+                    </tr>
+                </table>
             </div>
             
         )
     }else {
         return (
             <div>
-                <Link to="/signup">
-                    <button>Signup</button>
-                </Link>
+                <table>
+                    <tr>
+                        <td>
+                            <Link to="/signup">
+                                <div className="btn">Signup</div>
+                            </Link>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
                 <Link to='/login'>
-                    <button>Login</button>
+                    <div className="btn">Login</div>
                 </Link>
-                <hr/>
+                        </td>
+                    </tr>
+                </table>
             </div>
     ) 
     }

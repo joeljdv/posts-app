@@ -17,6 +17,7 @@ function App() {
   const [user, setUser] = useState({})
   const [image, setImage] = useState("")
   const [id, setId] = useState("")
+  const [isVisible, setIsVisible] = useState(false)
  
 
 
@@ -52,6 +53,14 @@ function App() {
     })
   }
 
+  const handleVisible = () => {
+    if(isVisible){
+      setIsVisible(false)
+    }else {
+      setIsVisible(true)
+    }
+  }
+
   return (
     <div className="row">
       <div className="column left"> 
@@ -72,7 +81,8 @@ function App() {
         </Switch>
       </div>
       <div className ="column right">
-      <Navbar user={user} loggedIn={loggedIn} logoutUser={logoutUser} profileImg={image} />
+        <p><i className="fas fa-bars" onClick={handleVisible}></i></p>
+        {isVisible ? <Navbar user={user} loggedIn={loggedIn} logoutUser={logoutUser} profileImg={image} visible={handleVisible} /> : null}
       </div>
     </div>
   );

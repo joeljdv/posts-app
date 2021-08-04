@@ -27,17 +27,20 @@ const Comments = (props) => {
             <div>
                 <div className="comment" onClick={handleClicked}>
                     <div className="commentor">
-                        <img src={props.comment.user.profile_img}/>
-                        <h4>{props.comment.user.username}</h4>
+                        <Link to={`/user/${props.comment.user.id}`}>
+                            <img src={props.comment.user.profile_img}/>
+                            <h4>{props.comment.user.username}</h4>
+                        </Link>
                     </div>
                     <Link to={`/posts/${props.post.id}/comments/${props.comment.id}`}>
                         <div className = "comment_text" >
                             <p>{props.comment.content}</p>
-                            {clicked ? <button onClick={props.delete}><i className="fa fa-trash"></i></button> : null}    
+                            {clicked ? <div className="btn" onClick={props.delete}><i className="fa fa-trash"></i></div> : null}    
                         </div>
                     </Link>
                     <br/>
                 </div>
+                <br/>
             </div>
         )
     }else {
@@ -45,8 +48,10 @@ const Comments = (props) => {
         <div>
             <div className="comment" >
                 <div className="commentor">
-                    <img src={props.comment.user.profile_img}/>
-                    <h4>{props.comment.user.username}</h4>
+                    <Link to={`/user/${props.comment.user.id}`}>
+                        <img src={props.comment.user.profile_img}/>
+                        <h4>{props.comment.user.username}</h4>
+                    </Link>
                 </div>
                 <div className = "comment_text">
                         <p>{props.comment.content}</p>

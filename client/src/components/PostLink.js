@@ -19,7 +19,7 @@ const PostLink = (props) => {
                 </Link>  
                 <div>
                     <Link to={`/posts/${props.post.id}/comments`}>
-                        <button className="btn"><i className="far fa-comments"> Comemnts</i></button>
+                        <div className="btn"><i className="far fa-comments"></i></div>
                     </Link> 
                 </div>
                 <br/>
