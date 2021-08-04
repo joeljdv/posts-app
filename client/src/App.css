@@ -104,6 +104,7 @@ table {
   background-color: aliceblue;
 }
 
+
 .post:hover {
   border-color: #39A2DB;
   box-shadow: 0 0 10px ;
@@ -155,8 +156,16 @@ table {
   left: 0px;
 }
 
+.post_title:hover{
+  color: #39A2DB;
+}
+
 .user_inf h4 {
   left: 40px;
+}
+
+.user_inf h4:hover{
+  color: #39A2DB;
 }
 
 .comments {
@@ -260,6 +269,7 @@ table {
 
 .btn:hover{
   font-size: 30px;
+  color: #39A2DB;
 }
 
 .fa:hover {

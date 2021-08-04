@@ -16,7 +16,8 @@ function App() {
   const [loggedIn, setLoggedIn] = useState(false)
   const [user, setUser] = useState({})
   const [image, setImage] = useState("")
-  const [id, setId] = useState("")
+  
+
   // const [isVisible, setIsVisible] = useState(false)
  
 
@@ -60,6 +61,10 @@ function App() {
   //     setIsVisible(true)
   //   }
   // }
+
+  const click = () => {
+    
+  }
 
   return (
     <div className="row">

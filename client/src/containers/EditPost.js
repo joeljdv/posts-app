@@ -17,7 +17,7 @@ const EditPost = (props) => {
 
 
     return (
-        <div>
+        <div className="edit_form">
             <form onSubmit={handleSubmit}>
                 <label>Title:</label>
                 <input 
@@ -34,7 +34,7 @@ const EditPost = (props) => {
                 value = {content}>
                 </textarea>
                 <br/>
-                <input className="form_submit" type="submit"/>
+                <button type="submit" title="Post"><i class="fas fa-paper-plane"></i></button>
             </form>
             <button onClick={props.cancel} title="Cancel"><i className
                 ="fas fa-times"></i></button>

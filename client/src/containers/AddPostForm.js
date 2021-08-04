@@ -32,9 +32,9 @@ const AddPostForm = (props) => {
                 value = {content}>
                 </textarea>
                 <br/>
-                <input className="form submit" type="submit"/>
-                <div className="form cancel" onClick={props.cancel} title="Cancel"><i className
-                ="fas fa-times"></i></div>
+                <button type="submit" title="post"><i class="fas fa-paper-plane"></i></button>
+                <button className="form cancel" title="cancel"onClick={props.cancel} title="Cancel"><i className
+                ="fas fa-times"></i></button>
             </form>
         </div>
     )
