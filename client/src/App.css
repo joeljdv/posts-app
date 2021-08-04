@@ -2,6 +2,10 @@ html *{
   font-family:'Courier New', Courier, monospace;
 }
 
+html {
+  background-color: #EEEEEE;
+}
+
 .column {
   float: left;
   padding: 10px;
@@ -44,7 +48,7 @@ table {
 }
 
 .profile_img {
-  border: black solid;
+  border: #39A2DB solid;
   width: 70px;
   height: 70px;
   border-radius: 50%;
@@ -70,8 +74,9 @@ table {
   top: 0;
   left: 16%;
   width: 70%;
-  background-color: rgb(255, 255, 255);
+  background-color: #EEEEEE;
   position: absolute;
+
 }
 
 .header h1 {
@@ -90,12 +95,13 @@ table {
   margin-left: 15%;
   overflow: auto;
   width: 70%;
-  border-color: #B5EAEA;
+  border-color: #39A2DB;
   border-style: solid;
   border-width: thin;
   border-radius: 5px;
   height: auto;
   position: relative;
+  background-color: aliceblue;
 }
 
 .post:hover {
@@ -104,8 +110,12 @@ table {
 }
 
 .single_post {
-  border: darkblue solid;
+  border-color: #39A2DB;
+  border-style: solid;
+  border-width: thin;
+  border-radius: 5px;
   position: relative;
+  background-color: aliceblue;
 }
 
 .user img{
@@ -118,6 +128,10 @@ table {
   position: absolute;
   left: 90px;
   top: 0px;
+}
+
+.user h3:hover{
+  color: #39A2DB;
 }
 
 .content {
@@ -136,7 +150,7 @@ table {
   position: absolute;
   width: 30px;
   height: 30px;
-  border: black solid 2px;
+  border: #39A2DB solid 2px;
   border-radius: 50%;
   left: 0px;
 }
@@ -157,6 +171,7 @@ table {
   margin-left: 15%;
   overflow: auto;
   width: 70%;
+  border-color: #39A2DB;
   border-style: solid;
   border-width: 2px;
   border-radius: 20px;
@@ -175,7 +190,7 @@ table {
   position: absolute;
   width: 30px;
   height: 30px;
-  border: black solid 2px;
+  border: #39A2DB solid 2px;
   border-radius: 50%;
   left: 0px;
 }
@@ -184,6 +199,10 @@ table {
   position: absolute;
   left: 40px;
   margin: 0;
+}
+
+.commentor h4:hover {
+  color: #39A2DB;
 }
 
 .comment_form {
@@ -205,7 +224,7 @@ table {
 }
 
 .hr {
-  border: 1px solid #EEEEEE;
+  border: 1px solid #39A2DB;
 }
 
 .author_name {
@@ -261,6 +280,11 @@ table {
 
 .fa-arrow-circle-left:hover {
   font-size: 200px;
+}
+
+.fas.fa-arrow-up {
+  font-size: 70px;
+  margin-right: 50px;
 }
 
 .form {

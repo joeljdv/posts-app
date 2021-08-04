@@ -25,8 +25,9 @@ const ScrollTop = () => {
 
     return (
         <div className="scroll-to-top"> 
-        {visible ?              <div onClick={scrollToTop}>
-                <img src='https://i.postimg.cc/44Ytsk8Z/top-arrow-emoj.png' alt='Go to top'/>
+        {visible ?              
+            <div onClick={scrollToTop} title="back to top">
+                <i className="fas fa-arrow-up"></i>
             </div> : null}
 
         </div>
