@@ -12,16 +12,20 @@ const CommentForm = (props) => {
     }
 
     return (
-        <div>
-            <form onSubmit={handleSubmit}>
-                <textarea id="content" 
-                rows="3" cols="40"
-                onChange = {(e) => setContent(e.target.value)}
-                value = {content}>
-                </textarea>
-                <br/>
-                <input className="form_submit" type="submit"/>
-            </form>
+        <div className="comment_form">
+            <div className="comment_form 2">
+                <form className="comment_form" onSubmit={handleSubmit}>
+                    <textarea id="content" 
+                    rows="1" cols=""
+                    onChange = {(e) => setContent(e.target.value)}
+                    value = {content}
+                    placeholder="Comment...">
+                    </textarea>
+                    <div className="comment_form submit2">
+                        <button type="submit"><i class="fas fa-paper-plane"></i></button>
+                    </div>
+                </form>
+            </div>
         </div>
     )
 }

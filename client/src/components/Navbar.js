@@ -6,7 +6,7 @@ const Navbar = (props) => {
 
     if (props.loggedIn) {
         return (
-            <div onClick={props.visible}>
+            <div >
                 <Link to={`/user/${props.user.id}`} >
                     <img className="profile_img" src={props.profileImg} />
                     <h2>{props.user.username}</h2>

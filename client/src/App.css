@@ -1,5 +1,5 @@
 html *{
-  font-family:'Courier New', Courier, monospace
+  font-family:'Courier New', Courier, monospace;
 }
 
 .column {
@@ -13,17 +13,22 @@ html *{
   top: 0;
   left: 0;
   height: 100%;
-  border: 3px solid #73AD21;
+  box-shadow: 0 0 10px #EEEEEE;
 }
+
 
 .right {
   width: 15%;
   position: fixed;
   top: 0;
   right: 0;
-  border: 3px solid #73AD21;
+  box-shadow: 0 0 10px #EEEEEE;
   height:100%;
   text-align: center;
+}
+
+.right:hover{
+  box-shadow: 0 0 10px
 }
 
 table {
@@ -53,16 +58,28 @@ table {
 }
 
 
-
 .middle {
-  position:absolute;
+  margin-top: 110px;
+  /* position:absolute; */
   text-align: center;
   width: 70%;
-  left: 15%;
+  margin-left: 15%;
+}
+
+.header {
+  top: 0;
+  left: 16%;
+  width: 70%;
+  background-color: rgb(255, 255, 255);
+  position: absolute;
+}
+
+.header h1 {
+  text-align: center;
+  position: relative;
 }
 
 .posts{
-  border-style: solid;
   /* margin-left: 10%;
   margin-right: 10%; */
   overflow: hidden;
@@ -73,9 +90,17 @@ table {
   margin-left: 15%;
   overflow: auto;
   width: 70%;
+  border-color: #B5EAEA;
   border-style: solid;
+  border-width: thin;
+  border-radius: 5px;
   height: auto;
   position: relative;
+}
+
+.post:hover {
+  border-color: #39A2DB;
+  box-shadow: 0 0 10px ;
 }
 
 .single_post {
@@ -125,6 +150,7 @@ table {
   margin-right: 10%; */
   overflow: hidden;
   width: 100%;
+  position: relative;
 }
 
 .comment {
@@ -160,9 +186,26 @@ table {
   margin: 0;
 }
 
+.comment_form {
+  display: inline-block;
+}
+
+.submit2 {
+  position: absolute;
+}
+
+
 .comment_text {
   position: relative;
   top: 7px
+}
+
+#content:hover{
+  background-color: #EEEEEE;
+}
+
+.hr {
+  border: 1px solid #EEEEEE;
 }
 
 .author_name {
@@ -193,6 +236,7 @@ table {
   display: inline-block;
   margin: 10px;
   text-align: center;
+  cursor: pointer;
 }
 
 .btn:hover{

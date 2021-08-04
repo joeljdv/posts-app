@@ -17,7 +17,7 @@ function App() {
   const [user, setUser] = useState({})
   const [image, setImage] = useState("")
   const [id, setId] = useState("")
-  const [isVisible, setIsVisible] = useState(false)
+  // const [isVisible, setIsVisible] = useState(false)
  
 
 
@@ -53,21 +53,22 @@ function App() {
     })
   }
 
-  const handleVisible = () => {
-    if(isVisible){
-      setIsVisible(false)
-    }else {
-      setIsVisible(true)
-    }
-  }
+  // const handleVisible = () => {
+  //   if(isVisible){
+  //     setIsVisible(false)
+  //   }else {
+  //     setIsVisible(true)
+  //   }
+  // }
 
   return (
     <div className="row">
       <div className="column left"> 
-      <h1>H</h1>
+      </div>
+      <div className="header">
+        <h1>PostIt</h1>
       </div>
       <div className="column middle">
-        
         <br/>
         <Switch>
           <Route exact path="/user/:id" component={Profile} />
@@ -81,8 +82,9 @@ function App() {
         </Switch>
       </div>
       <div className ="column right">
-        <p><i className="fas fa-bars" onClick={handleVisible}></i></p>
-        {isVisible ? <Navbar user={user} loggedIn={loggedIn} logoutUser={logoutUser} profileImg={image} visible={handleVisible} /> : null}
+        {/* <p className="btn"><i className="fas fa-bars" onClick={handleVisible}></i></p> */}
+        {/* {isVisible ? <Navbar user={user} loggedIn={loggedIn} logoutUser={logoutUser} profileImg={image} visible={handleVisible} /> : null} */}
+        <Navbar user={user} loggedIn={loggedIn} logoutUser={logoutUser} profileImg={image}  />
       </div>
     </div>
   );

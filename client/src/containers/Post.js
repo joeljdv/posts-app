@@ -151,12 +151,14 @@ const Post = (props) => {
                     </Link>  
                     {formFlag ? <EditPost post={post} editPost={editPost} cancel={cancelEdit} /> :
                         <div className="btn" onClick={() => setFormFlag(true)}><i className="fas fa-edit"></i></div>}
-                    <CommentForm addComment={addComment} /> 
-                    {commentError}
                     <br/>
+                    <hr className="hr"/>
+                    <br/>
+                    <CommentForm addComment={addComment} /> 
                     <div className="comments">
                         {commentsList}
                     </div>
+                    {commentError}
                 </div>
         )
         }else {
@@ -174,11 +176,14 @@ const Post = (props) => {
                             <p>{post.content}</p>
                         </div>
                     </div>
-                       <CommentForm addComment={addComment} />
+                    <hr className="hr"/>
                     <br/>
+                    <br/>
+                       <CommentForm addComment={addComment} />
                     <div className="comments">
                         {commentsList}
                     </div>
+                       {commentError}
                 </div> 
             )
     
