@@ -10,6 +10,7 @@ function Profile(props) {
     const [postError, setPostError] = useState([])
     const [user, setUser] = useState({})
     const [errors, setErrors] = useState([])
+    const [id, setId] = useState("")
 
     useEffect(() => {
         fetch(`/user/${props.match.params.id}`)
@@ -19,7 +20,7 @@ function Profile(props) {
                 if(data.error) {
                     setErrors(data.error)
                 }else {
-                console.log(data.posts)
+                console.log(data)
                 setPosts(data.posts)           
                 setUser(data)
                 }
@@ -27,14 +28,14 @@ function Profile(props) {
         })
     }, [])
 
-    // useEffect(() => {
-    //     fetch("/me")
-    //     .then(r => r.json())
-    //     .then(data => {
-    //         setUser(data)
-    //         console.log(data)
-    //     })
-    // }, [])
+    useEffect(() => {
+        fetch("/me")
+        .then(r => r.json())
+        .then(data => {
+            setId(data.id)
+            console.log(data.id)
+        })
+    }, [])
     
     const addPost = (post) => {
         fetch('/posts', {
@@ -72,23 +73,39 @@ function Profile(props) {
 
     const errorList = postError.map(e => <div key={e.id}><li>{e}</li><br/></div>)
 
-    return (
-        <div>
+    if(id === user.id) {
+        return (
+            <div>
+                <img className="profile_img" src={user.profile_img}/>
+                <h2>{user.username}</h2>
+                <div className="posts">
+                    <br/>           
+                    {formFlag ?
+                        <AddPostForm addPost={addPost} cancel={cancelPost}/> :
+                        <div onClick={() => {setFormFlag(true)}} title="Add Post"><i className="fas fa-plus"></i></div>
+                    }
+                    {errorList}
+                    <br/>
+                    <br/>
+                    {postsList}
+                </div>
+            </div>
+        )
+    }else {
+        return(
+            <div>
             <img className="profile_img" src={user.profile_img}/>
             <h2>{user.username}</h2>
             <div className="posts">
                 <br/>           
-                {formFlag ?
-                    <AddPostForm addPost={addPost} cancel={cancelPost}/> :
-                    <div onClick={() => {setFormFlag(true)}} title="Add Post"><i className="fas fa-plus"></i></div>
-                }
                 {errorList}
                 <br/>
                 <br/>
                 {postsList}
             </div>
         </div>
-    )
+        )
+    }
 }
 
 export default Profile
