@@ -76,6 +76,7 @@ function App() {
       <div className="column middle">
         <br/>
         <Switch>
+          <Route exact path="/" component={Home}/>
           <Route exact path="/user/:id" component={Profile} />
           <Route exact path="/signup" render={routerProps => <Signup {...routerProps} loginUser={loginUser} loggedIn={loggedIn}/>} />
           <Route exact path="/login" render={routerProps => <Login {...routerProps} loginUser={loginUser} loggedIn={loggedIn}/>}>
