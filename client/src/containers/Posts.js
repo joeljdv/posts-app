@@ -9,6 +9,7 @@ const Posts = () => {
     const [postError, setPostError] = useState([])
     const [error, setError] = useState("")
     const [count, setCount] = useState("")
+  
     
 
 

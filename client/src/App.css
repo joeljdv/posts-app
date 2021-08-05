@@ -2,6 +2,11 @@ html *{
   font-family:'Courier New', Courier, monospace;
 }
 
+h1 {
+  font-family:'Courier New', Courier, monospace;
+  color: #39A2DB;
+}
+
 html {
   background-color: #EEEEEE;
 }

@@ -71,7 +71,7 @@ function App() {
       <div className="column left"> 
       </div>
       <div className="header">
-        <h1>PostIt</h1>
+        <h1>BlogIt</h1>
       </div>
       <div className="column middle">
         <br/>
