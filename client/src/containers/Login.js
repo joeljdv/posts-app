@@ -41,7 +41,7 @@ const Login= (props) => {
     }else  {
 
         return (
-            <div>   
+            <div className="login">   
                 <form onSubmit={handleSubmit}>
                     <label>Username</label>
                     <input 

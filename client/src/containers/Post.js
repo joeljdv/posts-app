@@ -14,7 +14,7 @@ const Post = (props) => {
     const [comments, setComments] = useState([])
     const [id, setId] = useState("")
     const [postUserId, setPostUserId] = useState("")
-    const [commentsCount, setCommentsCount] = useState()
+
 
 
     useEffect(() => {
@@ -67,7 +67,6 @@ const Post = (props) => {
             }else {
                 console.log(data.comments)
                 setComments( data.comments)
-                setCommentsCount(data.comment.size)
             }
         })
     }, [])

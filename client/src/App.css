@@ -73,15 +73,15 @@ table {
   text-align: center;
   width: 70%;
   margin-left: 15%;
+  height: 100%;
 }
 
 .header {
   top: 0;
-  left: 16%;
+  left: 15%;
   width: 70%;
-  background-color: #EEEEEE;
+  /* background-color: #EEEEEE; */
   position: absolute;
-
 }
 
 .header h1 {
